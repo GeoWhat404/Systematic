@@ -3,17 +3,17 @@
 #include "token.hpp"
 #include <vector>
 
-class TokenStream {
+class STokenStream {
 public:
-    TokenStream(std::vector<Token> tokens);
+    STokenStream(std::vector<SToken> tokens);
 
-    Token next();
-    Token peek();
+    SToken next();
+    SToken peek();
     bool hasNext();
 
     size_t pos;
 
 private:
-    std::vector<Token> tokens;
+    std::vector<SToken> tokens;
 };
 

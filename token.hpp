@@ -3,7 +3,7 @@
 #include <optional>
 #include <string>
 
-enum class TokenType {
+enum class STokenType {
     UNKNOWN_X,
     UNKNOWN_Y,
     NUMBER,
@@ -15,11 +15,11 @@ enum class TokenType {
     END,
 };
 
-class Token {
+class SToken {
     public:
-        TokenType type;
+        STokenType type;
         std::optional<std::string> value;
 
-        Token(TokenType type);
-        Token(TokenType type, std::optional<std::string> value);
+        SToken(STokenType type);
+        SToken(STokenType type, std::optional<std::string> value);
 };

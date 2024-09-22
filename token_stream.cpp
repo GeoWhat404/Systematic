@@ -1,10 +1,10 @@
 #include "token_stream.hpp"
 #include <stdexcept>
 
-TokenStream::TokenStream(std::vector<Token> tokens)
+STokenStream::STokenStream(std::vector<SToken> tokens)
     : tokens(tokens), pos(0) {}
 
-Token TokenStream::next() {
+SToken STokenStream::next() {
     if (pos < tokens.size()) {
         return tokens[pos++];
     } else {
@@ -12,7 +12,7 @@ Token TokenStream::next() {
     }
 }
 
-Token TokenStream::peek() {
+SToken STokenStream::peek() {
     if (pos < tokens.size()) {
         return tokens[pos];
     } else {
@@ -20,7 +20,7 @@ Token TokenStream::peek() {
     }
 }
 
-bool TokenStream::hasNext() {
+bool STokenStream::hasNext() {
     return pos < tokens.size();
 }
 

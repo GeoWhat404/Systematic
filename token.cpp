@@ -1,11 +1,11 @@
 #include "token.hpp"
 
-Token::Token(TokenType type)
+SToken::SToken(STokenType type)
     : type(type) {
 
 }
 
-Token::Token(TokenType type, std::optional<std::string> value)
+SToken::SToken(STokenType type, std::optional<std::string> value)
     : type(type), value(value) {
 
 }

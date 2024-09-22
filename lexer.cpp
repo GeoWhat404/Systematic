@@ -1,13 +1,13 @@
 #include "lexer.hpp"
 #include <iostream>
 
-Lexer::Lexer(std::string src)
+SLexer::SLexer(std::string src)
     :src(src) {
 
 }
 
-std::vector<Token> Lexer::lex() {
-    std::vector<Token> tokens;
+std::vector<SToken> SLexer::lex() {
+    std::vector<SToken> tokens;
     for (int i = 0; i < src.length(); i++) {
         current_pos = i;
 
@@ -18,19 +18,19 @@ std::vector<Token> Lexer::lex() {
             case '\n':
                 break;
 
-            case '+': tokens.push_back(Token(TokenType::PLUS));     break;
-            case '-': tokens.push_back(Token(TokenType::MINUS));    break;
-            case '/': tokens.push_back(Token(TokenType::DIV));      break;
-            case '*': tokens.push_back(Token(TokenType::MUL));      break;
-            case '=': tokens.push_back(Token(TokenType::EQU));      break;
+            case '+': tokens.push_back(SToken(STokenType::PLUS));     break;
+            case '-': tokens.push_back(SToken(STokenType::MINUS));    break;
+            case '/': tokens.push_back(SToken(STokenType::DIV));      break;
+            case '*': tokens.push_back(SToken(STokenType::MUL));      break;
+            case '=': tokens.push_back(SToken(STokenType::EQU));      break;
 
             case 'x':
             case 'X':
-                tokens.push_back(Token(TokenType::UNKNOWN_X));
+                tokens.push_back(SToken(STokenType::UNKNOWN_X));
                 break;
             case 'y':
             case 'Y':
-                tokens.push_back(Token(TokenType::UNKNOWN_Y));
+                tokens.push_back(SToken(STokenType::UNKNOWN_Y));
                 break;
 
             default:
@@ -40,7 +40,7 @@ std::vector<Token> Lexer::lex() {
                         num.push_back(src.at(i));
                         i++;
                     }
-                    tokens.push_back(Token(TokenType::NUMBER, num));
+                    tokens.push_back(SToken(STokenType::NUMBER, num));
                     i--;
                 } else {
                     std::cerr << "Unexpected character: " << src.at(i) << std::endl;
@@ -48,7 +48,7 @@ std::vector<Token> Lexer::lex() {
                 break;
         }
     }
-    tokens.push_back(Token(TokenType::END));
+    tokens.push_back(SToken(STokenType::END));
     return tokens;
 }
 

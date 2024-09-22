@@ -4,10 +4,10 @@
 #include <string>
 #include "token.hpp"
 
-class Lexer {
+class SLexer {
     public:
-        Lexer(std::string src);
-        std::vector<Token> lex();
+        SLexer(std::string src);
+        std::vector<SToken> lex();
 
     private:
         std::string src;

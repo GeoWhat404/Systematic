@@ -3,17 +3,17 @@
 #include "system.hpp"
 #include "token_stream.hpp"
 
-class Parser {
+class SParser {
 public:
-    Parser(TokenStream &ts);
-    System parse();
+    SParser(STokenStream &ts);
+    SSystem parse();
 
 private:
-    TokenStream &ts;
+    STokenStream &ts;
 
     std::int64_t parseCoefficient();
     std::int64_t parseConstant();
     void parseEquation(std::int64_t &a, std::int64_t &b, std::int64_t &c);
-    void expectTokenType(TokenType expected);
-    void expectTokenTypes(TokenType a, TokenType b);
+    void expectTokenType(STokenType expected);
+    void expectTokenTypes(STokenType a, STokenType b);
 };
